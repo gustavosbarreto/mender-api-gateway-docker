@@ -8,7 +8,10 @@ RUN mkdir -p /var/log/nginx && \
 
 EXPOSE 443
 
+RUN mkdir /usr/local/openresty/nginx/conf.d
+
 COPY nginx.conf /usr/local/openresty/nginx/conf/nginx.conf
+COPY nginx-ssl.conf /usr/local/openresty/nginx/conf.d/nginx-ssl.conf
 
 COPY entrypoint.sh /entrypoint.sh
 
