@@ -16,4 +16,8 @@ if [ "$waserr" = "1" ]; then
    exit 1
 fi
 
+if [ "$DISABLE_SSL" = "true" ]; then
+  rm -f /usr/local/openresty/nginx/conf.d/nginx-ssl.conf
+fi
+
 exec /usr/local/openresty/bin/openresty -g "daemon off;" $*
